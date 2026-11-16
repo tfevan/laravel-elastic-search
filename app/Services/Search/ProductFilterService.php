@@ -25,11 +25,11 @@ class ProductFilterService
         $builder = Product::search($this->buildQuery($filters));
 
         if ($filters->category !== null) {
-            $builder->where('category.keyword', $filters->category);
+            $builder->where('category', $filters->category);
         }
 
         if ($filters->brands !== []) {
-            $builder->whereIn('brand.keyword', $filters->brands);
+            $builder->whereIn('brand', $filters->brands);
         }
 
         $order = self::SORTS[$filters->sort] ?? null;

@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
             Product::factory()->count(self::TOTAL)->create();
         });
 
+        Artisan::call('elastic:migrate');
         Artisan::call('scout:import', ['model' => Product::class]);
     }
 }
