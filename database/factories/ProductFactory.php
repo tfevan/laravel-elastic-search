@@ -51,6 +51,7 @@ class ProductFactory extends Factory
             'price' => fake()->randomFloat(2, 9, 1999),
             'rating' => fake()->randomFloat(1, 1, 5),
             'tags' => fake()->randomElements(self::TAGS, fake()->numberBetween(1, 3)),
+            'is_active' => true,
         ];
     }
 }

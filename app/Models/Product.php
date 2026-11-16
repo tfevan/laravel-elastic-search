@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Database\Factories\ProductFactory;
+use Elastic\ScoutDriverPlus\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
@@ -22,6 +22,11 @@ class Product extends Model
         'price',
         'rating',
         'tags',
+        'is_active',
+    ];
+
+    protected $attributes = [
+        'is_active' => true,
     ];
 
     /**
@@ -33,6 +38,7 @@ class Product extends Model
             'price' => 'decimal:2',
             'rating' => 'decimal:1',
             'tags' => 'array',
+            'is_active' => 'boolean',
         ];
     }
 
@@ -51,5 +57,13 @@ class Product extends Model
             'tags' => $this->tags,
             'created_at' => $this->created_at?->toIso8601String(),
         ];
+    }
+
+    /**
+     * Determine whether the product belongs in the search index.
+     */
+    public function shouldBeSearchable(): bool
+    {
+        return $this->is_active;
     }
 }

@@ -42,12 +42,12 @@ const codePreview = computed(() => {
     const lines = [`Product::search('${scoutQuery.value}')`];
 
     if (state.category !== "") {
-        lines.push(`    ->where('category.keyword', '${state.category}')`);
+        lines.push(`    ->where('category', '${state.category}')`);
     }
 
     if (state.brands.length > 0) {
         lines.push(
-            `    ->whereIn('brand.keyword', [${state.brands.map((brand) => `'${brand}'`).join(", ")}])`,
+            `    ->whereIn('brand', [${state.brands.map((brand) => `'${brand}'`).join(", ")}])`,
         );
     }
 
