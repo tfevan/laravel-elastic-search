@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\PaginationController;
 use App\Http\Controllers\Api\ProductActivationController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductIndexController;
+use App\Http\Controllers\Api\RelevanceController;
 use App\Http\Controllers\Api\SearchController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,6 @@ Route::patch('/products/{product}/activation', ProductActivationController::clas
 
 Route::get('/mapping', [MappingController::class, 'show']);
 Route::get('/mapping/analyze', [MappingController::class, 'analyze']);
+
+Route::get('/relevance', [RelevanceController::class, 'search']);
+Route::get('/relevance/{product}/explain', [RelevanceController::class, 'explain']);
