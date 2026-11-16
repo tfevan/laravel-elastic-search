@@ -1,3 +1,6 @@
 <?php
 
-// Chapter API routes are registered here and served under /api/v1.
+use App\Http\Controllers\Api\HealthController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/health', HealthController::class);

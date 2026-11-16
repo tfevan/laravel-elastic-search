@@ -11,7 +11,13 @@ export interface Chapter {
 }
 
 export const chapters: Chapter[] = [
-    { number: 1, title: 'Connection & Health', path: '/health', level: 'beginner' },
+    {
+    number: 1,
+    title: 'Connection & Health',
+    path: '/health',
+    level: 'beginner',
+    component: () => import('./pages/chapters/Chapter01Health.vue'),
+},
     { number: 2, title: 'Indexing & Auto-sync', path: '/products', level: 'beginner' },
     { number: 3, title: 'Basic Search', path: '/search', level: 'beginner' },
     { number: 4, title: 'Filters & Sorting', path: '/filters', level: 'beginner' },
