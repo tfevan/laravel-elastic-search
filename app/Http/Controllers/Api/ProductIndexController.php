@@ -16,7 +16,7 @@ class ProductIndexController extends Controller
     {
         return response()->json([
             'data' => [
-                'database' => Product::query()->count(),
+                'database' => Product::query()->where('is_active', true)->count(),
                 'elasticsearch' => $service->count(),
             ],
         ]);

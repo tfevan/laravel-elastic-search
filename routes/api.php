@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\FilterOptionsController;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\PaginationController;
+use App\Http\Controllers\Api\ProductActivationController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductIndexController;
 use App\Http\Controllers\Api\SearchController;
@@ -22,3 +24,7 @@ Route::get('/filters/options', FilterOptionsController::class);
 Route::get('/filters', FilterController::class);
 
 Route::get('/pagination', PaginationController::class);
+
+Route::get('/documents/raw', [DocumentController::class, 'raw']);
+Route::get('/documents/{product}', [DocumentController::class, 'show']);
+Route::patch('/products/{product}/activation', ProductActivationController::class);
