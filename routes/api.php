@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\FilterController;
+use App\Http\Controllers\Api\FilterOptionsController;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductIndexController;
@@ -13,3 +15,6 @@ Route::get('/products/{product}/document', [ProductIndexController::class, 'docu
 Route::apiResource('products', ProductController::class)
     ->only(['index', 'store', 'update', 'destroy']);
 Route::get('/search', SearchController::class);
+
+Route::get('/filters/options', FilterOptionsController::class);
+Route::get('/filters', FilterController::class);
