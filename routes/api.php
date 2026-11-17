@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\FilterOptionsController;
+use App\Http\Controllers\Api\FuzzyController;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\MappingController;
 use App\Http\Controllers\Api\PaginationController;
@@ -36,3 +37,5 @@ Route::get('/mapping/analyze', [MappingController::class, 'analyze']);
 
 Route::get('/relevance', [RelevanceController::class, 'search']);
 Route::get('/relevance/{product}/explain', [RelevanceController::class, 'explain']);
+
+Route::get('/fuzzy', FuzzyController::class);
