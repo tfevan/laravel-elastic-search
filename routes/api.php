@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AutocompleteController;
 use App\Http\Controllers\Api\DocumentController;
+use App\Http\Controllers\Api\FacetController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\FilterOptionsController;
 use App\Http\Controllers\Api\FuzzyController;
@@ -45,3 +46,5 @@ Route::get('/fuzzy', FuzzyController::class);
 Route::get('/autocomplete', AutocompleteController::class);
 
 Route::get('/highlight', HighlightController::class);
+
+Route::get('/facets', FacetController::class);
