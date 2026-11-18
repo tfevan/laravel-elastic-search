@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\AutocompleteController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\FilterOptionsController;
 use App\Http\Controllers\Api\FuzzyController;
 use App\Http\Controllers\Api\HealthController;
+use App\Http\Controllers\Api\HighlightController;
 use App\Http\Controllers\Api\MappingController;
 use App\Http\Controllers\Api\PaginationController;
 use App\Http\Controllers\Api\ProductActivationController;
@@ -39,3 +41,7 @@ Route::get('/relevance', [RelevanceController::class, 'search']);
 Route::get('/relevance/{product}/explain', [RelevanceController::class, 'explain']);
 
 Route::get('/fuzzy', FuzzyController::class);
+
+Route::get('/autocomplete', AutocompleteController::class);
+
+Route::get('/highlight', HighlightController::class);

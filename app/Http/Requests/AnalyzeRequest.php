@@ -13,7 +13,10 @@ class AnalyzeRequest extends FormRequest
     {
         return [
             'text' => ['required', 'string', 'max:200'],
-            'analyzer' => ['required', 'in:standard,english,product_index,product_search'],
+            'analyzer' => [
+                'required',
+                'in:standard,english,product_index,product_search,autocomplete_index,autocomplete_search',
+            ],
         ];
     }
 }
