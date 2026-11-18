@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AutocompleteController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\FilterOptionsController;
@@ -39,3 +40,5 @@ Route::get('/relevance', [RelevanceController::class, 'search']);
 Route::get('/relevance/{product}/explain', [RelevanceController::class, 'explain']);
 
 Route::get('/fuzzy', FuzzyController::class);
+
+Route::get('/autocomplete', AutocompleteController::class);
