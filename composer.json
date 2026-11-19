@@ -45,6 +45,7 @@
             "npm install --ignore-scripts",
             "npm run build"
         ],
+        "test:integration": "phpunit --configuration phpunit.integration.xml",
         "dev": [
             "Composer\\Config::disableProcessTimeout",
             "@php artisan dev"
