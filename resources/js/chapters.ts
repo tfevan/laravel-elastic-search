@@ -95,7 +95,13 @@ export const chapters: Chapter[] = [
         level: 'advanced',
         component: () => import('./pages/chapters/Chapter12Facets.vue'),
     },
-    { number: 13, title: 'Geo Search', path: '/geo', level: 'advanced' },
+    {
+        number: 13,
+        title: 'Geo Search',
+        path: '/geo',
+        level: 'advanced',
+        component: () => import('./pages/chapters/Chapter13Geo.vue'),
+    },
     { number: 14, title: 'Performance', path: '/performance', level: 'advanced' },
     { number: 15, title: 'Testing', path: '/testing', level: 'advanced' },
 ];

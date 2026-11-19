@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\FacetController;
 use App\Http\Controllers\Api\FilterController;
 use App\Http\Controllers\Api\FilterOptionsController;
 use App\Http\Controllers\Api\FuzzyController;
+use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\HighlightController;
 use App\Http\Controllers\Api\MappingController;
@@ -48,3 +49,5 @@ Route::get('/autocomplete', AutocompleteController::class);
 Route::get('/highlight', HighlightController::class);
 
 Route::get('/facets', FacetController::class);
+
+Route::get('/geo', GeoController::class);
