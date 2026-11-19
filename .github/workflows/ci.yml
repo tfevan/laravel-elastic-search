@@ -62,3 +62,42 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  integration:
+    name: Elasticsearch integration tests
+    runs-on: ubuntu-latest
+    env:
+      ELASTIC_HOST: http://localhost:9200
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:9.0.0
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: "false"
+          ES_JAVA_OPTS: -Xms512m -Xmx512m
+        ports:
+          - 9200:9200
+        options: >-
+          --health-cmd "curl -fs http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Prepare the application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Run integration tests
+        run: php vendor/bin/phpunit --configuration phpunit.integration.xml

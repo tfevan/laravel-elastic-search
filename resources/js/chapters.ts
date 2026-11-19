@@ -109,5 +109,11 @@ export const chapters: Chapter[] = [
         level: 'advanced',
         component: () => import('./pages/chapters/Chapter14Performance.vue'),
     },
-    { number: 15, title: 'Testing', path: '/testing', level: 'advanced' },
+    {
+        number: 15,
+        title: 'Testing',
+        path: '/testing',
+        level: 'advanced',
+        component: () => import('./pages/chapters/Chapter15Testing.vue'),
+    },
 ];
