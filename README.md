@@ -19,6 +19,10 @@ production-style Laravel code.
 |----------------------|----------------|------------|
 | ![Search](docs/screenshots/search.png) | ![Facets](docs/screenshots/facets.png) | ![Geo](docs/screenshots/geo.png) |
 
+| Autocomplete | Highlighting | Performance |
+|--------------|--------------|-------------|
+| ![Autocomplete](docs/screenshots/autocomplete.png) | ![Highlight](docs/screenshots/highlight.png) | ![Performance](docs/screenshots/performance.png) |
+
 ## What you will learn
 
 - Setting up Elasticsearch with Laravel Scout, and indexing a database with seeders and Elastic migrations.
@@ -91,7 +95,10 @@ By default Elasticsearch 9 enables security and serves HTTPS. For local developm
 
 ```yaml
 xpack.security.enabled: false
-xpack.security.http.ssl.enabled: false
+
+xpack.security.http.ssl:
+  enabled: false
+  keystore.path: certs/http.p12
 ```
 
 Then start (or restart) Elasticsearch:
