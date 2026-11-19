@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AutocompleteController;
+use App\Http\Controllers\Api\CatalogAliasController;
+use App\Http\Controllers\Api\DeepPaginationController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\FacetController;
 use App\Http\Controllers\Api\FilterController;
@@ -9,6 +11,7 @@ use App\Http\Controllers\Api\FuzzyController;
 use App\Http\Controllers\Api\GeoController;
 use App\Http\Controllers\Api\HealthController;
 use App\Http\Controllers\Api\HighlightController;
+use App\Http\Controllers\Api\IndexingController;
 use App\Http\Controllers\Api\MappingController;
 use App\Http\Controllers\Api\PaginationController;
 use App\Http\Controllers\Api\ProductActivationController;
@@ -51,3 +54,11 @@ Route::get('/highlight', HighlightController::class);
 Route::get('/facets', FacetController::class);
 
 Route::get('/geo', GeoController::class);
+
+Route::get('/performance/deep-pagination', DeepPaginationController::class);
+Route::get('/performance/indexing', [IndexingController::class, 'status']);
+Route::post('/performance/indexing/touch', [IndexingController::class, 'touch']);
+Route::get('/performance/catalog', [CatalogAliasController::class, 'status']);
+Route::post('/performance/catalog/reindex', [CatalogAliasController::class, 'reindex']);
+Route::post('/performance/catalog/rollback', [CatalogAliasController::class, 'rollback']);
+Route::delete('/performance/catalog', [CatalogAliasController::class, 'reset']);
